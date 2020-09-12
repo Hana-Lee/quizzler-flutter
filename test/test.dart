@@ -16,5 +16,10 @@ void main() {
     print(myList[3]);
     int idx = myList.indexOf('James');
     print(idx);
+    print(myList);
+    myList.insert(2, 'Ben');
+    print(myList);
+    myList.clear();
+    assert(myList.isEmpty);
   });
 }
