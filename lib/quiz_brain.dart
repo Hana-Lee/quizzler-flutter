@@ -34,8 +34,6 @@ class QuizBrain {
   void nexQuestion() {
     if (this._questionNumber < this.getBankSize() - 1) {
       this._questionNumber++;
-    } else {
-      this._questionNumber = 0;
     }
   }
 
@@ -49,5 +47,14 @@ class QuizBrain {
 
   int getBankSize() {
     return this._questionBank.length;
+  }
+
+  bool isFinished() {
+    print('isFinished');
+    return this._questionNumber == this.getBankSize() - 1;
+  }
+
+  void reset() {
+    this._questionNumber = 0;
   }
 }
