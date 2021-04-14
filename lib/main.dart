@@ -42,7 +42,7 @@ class _QuizPageState extends State<QuizPage> {
         scoreKeeper.clear();
         quizBrain.reset();
       } else {
-        bool correctAnswer = quizBrain.getQuestionAnswer();
+        var correctAnswer = quizBrain.getQuestionAnswer();
         if (userPickedAnswer == correctAnswer) {
           scoreKeeper.add(Icon(
             Icons.check,
@@ -87,6 +87,9 @@ class _QuizPageState extends State<QuizPage> {
             child: FlatButton(
               textColor: Colors.white,
               color: Colors.green,
+              onPressed: () {
+                checkAnswer(true);
+              },
               child: Text(
                 'True',
                 style: TextStyle(
@@ -94,9 +97,6 @@ class _QuizPageState extends State<QuizPage> {
                   fontSize: 20.0,
                 ),
               ),
-              onPressed: () {
-                checkAnswer(true);
-              },
             ),
           ),
         ),
@@ -105,6 +105,9 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(15.0),
             child: FlatButton(
               color: Colors.red,
+              onPressed: () {
+                checkAnswer(false);
+              },
               child: Text(
                 'False',
                 style: TextStyle(
@@ -112,9 +115,6 @@ class _QuizPageState extends State<QuizPage> {
                   color: Colors.white,
                 ),
               ),
-              onPressed: () {
-                checkAnswer(false);
-              },
             ),
           ),
         ),

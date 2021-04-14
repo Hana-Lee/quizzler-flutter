@@ -3,7 +3,7 @@ import 'package:quizzler/question.dart';
 class QuizBrain {
   int _questionNumber = 0;
 
-  List<Question> _questionBank = [
+  final List<Question> _questionBank = [
     Question('Some cats are actually allergic to humans', true),
     Question('You can lead a cow down stairs but not up stairs.', false),
     Question('Approximately one quarter of human bones are in the feet.', true),
@@ -32,29 +32,29 @@ class QuizBrain {
   ];
 
   void nexQuestion() {
-    if (this._questionNumber < this.getBankSize() - 1) {
-      this._questionNumber++;
+    if (_questionNumber < getBankSize() - 1) {
+      _questionNumber++;
     }
   }
 
   String getQuestionText() {
-    return this._questionBank[_questionNumber].questionText;
+    return _questionBank[_questionNumber].questionText;
   }
 
   bool getQuestionAnswer() {
-    return this._questionBank[_questionNumber].questionAnswer;
+    return _questionBank[_questionNumber].questionAnswer;
   }
 
   int getBankSize() {
-    return this._questionBank.length;
+    return _questionBank.length;
   }
 
   bool isFinished() {
     print('isFinished');
-    return this._questionNumber == this.getBankSize() - 1;
+    return _questionNumber == getBankSize() - 1;
   }
 
   void reset() {
-    this._questionNumber = 0;
+    _questionNumber = 0;
   }
 }
